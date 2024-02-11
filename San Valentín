@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quieres ser mi San Valentín?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('corazon.jpeg');
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      color: black;
+      font-size: 24px;
+    }
+
+    #no {
+      animation: move 2s infinite alternate;
+    }
+
+    @keyframes move {
+      from {
+        transform: translateX(-20px);
+      }
+      to {
+        transform: translateX(20px);
+      }
+    }
+
+    button {
+      margin: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .message {
+      display: none;
+      color: black;
+      font-size: 24px;
+    }
+
+    img {
+      max-width: 300px;
+      max-height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="question">¿Quieres ser mi San Valentín?</h1>
+    <img src="osito.jpeg" alt="Osito" id="osito" style="display: block; margin-bottom: 20px;">
+    <button id="si" onclick="mostrarMensaje()">Sí</button>
+    <button id="no" onclick="mostrarConfirmacion()">No</button>
+    <p id="thanks-message" class="message">¡Te quiero mucho! &lt;3</p>
+    <p id="error-message" class="message">¿Estás segura?</p>
+    <img src="amor.jpeg" alt="Corazón" id="corazon" style="display: none;">
+    <img src="bola.jpeg" alt="Bola amarilla" id="bola" style="display: none;">
+  </div>
+
+  <script>
+    function mostrarMensaje() {
+      document.getElementById('thanks-message').style.display = 'block';
+      document.getElementById('question').style.display = 'none';
+      document.getElementById('osito').style.display = 'none';
+      document.getElementById('si').style.display = 'none';
+      document.getElementById('no').style.display = 'none';
+      document.getElementById('corazon').style.display = 'block';
+    }
+
+    function mostrarConfirmacion() {
+      document.getElementById('error-message').style.display = 'block';
+      document.getElementById('question').style.display = 'none';
+      document.getElementById('osito').style.display = 'none';
+      document.getElementById('si').style.display = 'none';
+      document.getElementById('no').style.display = 'none';
+      document.getElementById('bola').style.display = 'block'; // Muestra la imagen de la bola
+      setTimeout(function() {
+        document.getElementById('error-message').style.display = 'none';
+        document.getElementById('question').style.display = 'block';
+        document.getElementById('osito').style.display = 'block'; // Muestra nuevamente la imagen del osito
+        document.getElementById('bola').style.display = 'none'; // Oculta la imagen de la bola después de 3 segundos
+        document.getElementById('si').style.display = 'block';
+        document.getElementById('no').style.display = 'block';
+      }, 3000); // 3000 milliseconds = 3 segundos
+    }
+  </script>
+</body>
+</html>
